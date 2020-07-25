@@ -1,0 +1,49 @@
+﻿@model ECommerceApi.Models.ProductInputModel
+
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+    <div>
+        <form action="/Product/AddProduct" method="post">
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Name </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Name)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Description </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Description)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Barcode </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Barcode)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Price </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Price)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Stock </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Stock)</div>
+            </div>
+
+            <div>
+                <input type="submit" value="Kaydet" />
+            </div>
+
+        </form>
+    </div>
