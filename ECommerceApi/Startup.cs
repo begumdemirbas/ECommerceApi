@@ -1,15 +1,10 @@
-using Autofac;
-using Autofac.Features.AttributeFilters;
-using ECommerceApi.Application.Queries;
-using ECommerceApi.Data;
-using ECommerceApi.Data.Data.Core;
-using ECommerceApi.Domain.AggregatesModel.ProductAggregate.Services;
-using ECommerceApi.Services;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,48 +23,7 @@ namespace ECommerceApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.Cookie.Name = "UserCookie";
-                    options.LoginPath = "/Account/Login/";
-                });
             services.AddControllersWithViews();
-
-            services.AddDbContext<Context>(
-                           options => options
-                                .UseSqlServer(Configuration.GetConnectionString(name: "DbConnection")));
-
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-        }
-
-        public void ConfigureContainer(ContainerBuilder builder)
-        {
-            builder.RegisterType<Context>()
-               .As<IUnitOfWork>()
-               .Keyed<IUnitOfWork>("Context")
-               .WithAttributeFiltering()
-               .InstancePerLifetimeScope();
-
-            builder.RegisterGeneric(typeof(Repository<>))
-                .As(typeof(IRepository<>))
-                .WithAttributeFiltering()
-                .InstancePerDependency();
-
-            builder.RegisterType<UserQuery>()
-                .As<IUserQuery>()
-                .WithAttributeFiltering()
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<ProductQuery>()
-                .As<IProductQuery>()
-                .WithAttributeFiltering()
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<ProductService>()
-                .As<IProductService>()
-                .WithAttributeFiltering()
-                .InstancePerLifetimeScope();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,16 +44,14 @@ namespace ECommerceApi
 
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
         }
     }
 }

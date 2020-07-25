@@ -13,9 +13,9 @@ namespace ECommerceApi.Data.Data.Core
 
         #region Get
 
-        Task<IEnumerable<TEntity>> GetAllAsync(params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes);
+        IEnumerable<TEntity> GetAll(params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes);
 
-        Task<TEntity> GetByKeyAsync(long id, params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes);
+        TEntity GetByKey(long id, params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes);
 
         Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter = null, params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes);
 

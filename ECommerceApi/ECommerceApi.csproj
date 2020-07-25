@@ -4,26 +4,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Account\" />
-    <Folder Include="Services\" />
-    <Folder Include="Application\" />
-    <Folder Include="Application\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ECommerceApi.Domain\ECommerceApi.Domain.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\ECommerceApi.Data\ECommerceApi.Data.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\ECommerceApi.DomainCore\ECommerceApi.DomainCore.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

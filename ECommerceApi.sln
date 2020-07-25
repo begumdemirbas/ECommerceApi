@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApi", "ECommerceApi\ECommerceApi.csproj", "{74A21E97-D16E-4801-9687-2F6A1BD00485}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApi.Data", "ECommerceApi.Data\ECommerceApi.Data.csproj", "{2C9BDFBC-536C-4C19-B270-8EA57A7B95E4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApi.Domain", "ECommerceApi.Domain\ECommerceApi.Domain.csproj", "{607B4192-9A77-48D7-915D-E2D26678D34C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceApi.DomainCore", "ECommerceApi.DomainCore\ECommerceApi.DomainCore.csproj", "{7801F82C-D1F5-41CA-B3C6-916A496EE817}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,17 +13,5 @@ Global
 		{74A21E97-D16E-4801-9687-2F6A1BD00485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74A21E97-D16E-4801-9687-2F6A1BD00485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74A21E97-D16E-4801-9687-2F6A1BD00485}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C9BDFBC-536C-4C19-B270-8EA57A7B95E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C9BDFBC-536C-4C19-B270-8EA57A7B95E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C9BDFBC-536C-4C19-B270-8EA57A7B95E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C9BDFBC-536C-4C19-B270-8EA57A7B95E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{607B4192-9A77-48D7-915D-E2D26678D34C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{607B4192-9A77-48D7-915D-E2D26678D34C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{607B4192-9A77-48D7-915D-E2D26678D34C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{607B4192-9A77-48D7-915D-E2D26678D34C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7801F82C-D1F5-41CA-B3C6-916A496EE817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7801F82C-D1F5-41CA-B3C6-916A496EE817}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7801F82C-D1F5-41CA-B3C6-916A496EE817}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7801F82C-D1F5-41CA-B3C6-916A496EE817}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

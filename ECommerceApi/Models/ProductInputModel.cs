@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-
+﻿using System;
 namespace ECommerceApi.Models
 {
-    public class ProductInputModel : ProductModel
+    public class ProductInputModel
     {
-        public new List<ProductImageInputModel> Images { get; set; } = new List<ProductImageInputModel>();
-    }
-
-    public class ProductImageInputModel : ProductImageModel
-    {
+        public ProductInputModel()
+        {
+        }
     }
 }

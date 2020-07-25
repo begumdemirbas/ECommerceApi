@@ -1,0 +1,41 @@
+﻿@model ECommerceApi.Models.ProductInputModel
+
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+    <div class="text-center">
+        
+
+        <form action="/Product/AddProduct" method="post">
+            <div>
+                <label>Name: </label>
+                @Html.TextBoxFor(x => x.Name)
+            </div>
+
+            <div>
+                <label>Description: </label>
+                @Html.TextBoxFor(x => x.Description)
+            </div>
+
+            <div>
+                <label>Description: </label>
+                @Html.TextBoxFor(x => x.Barcode)
+            </div>
+
+            <div>
+                <label>Description: </label>
+                @Html.TextBoxFor(x => x.Price)
+            </div>
+
+            <div>
+                <label>Description: </label>
+                @Html.TextBoxFor(x => x.Stock)
+            </div>
+
+            <div>
+                <input type="submit" value="Kaydet" />
+            </div>
+
+        </form>
+    </div>

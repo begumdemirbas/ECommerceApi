@@ -66,6 +66,8 @@ namespace ECommerceApi.Data.Migrations
                 name: "IX_ProductImage_ProductId",
                 table: "ProductImage",
                 column: "ProductId");
+
+            migrationBuilder.Sql("EXEC('INSERT INTO [dbo].[User]([Id], [IsDeleted], [UserName], [Password], [IsAdmin]) VALUES (NEXT VALUE FOR dbo.DBSequenceHiLo ,0 ,''Admin'',''123456'', 1)')");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

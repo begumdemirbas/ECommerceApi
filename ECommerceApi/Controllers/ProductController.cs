@@ -1,66 +1,19 @@
-﻿using ECommerceApi.Application.Queries;
-using ECommerceApi.Domain.AggregatesModel.ProductAggregate.Services;
-using ECommerceApi.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ECommerceApi.Controllers
 {
-    [Authorize]
     public class ProductController : Controller
     {
-        private readonly IProductService _productService;
-        private readonly IProductQuery _productQuery;
-
-        public ProductController(IProductService productService, IProductQuery productQuery)
+        // GET: /<controller>/
+        public IActionResult Index()
         {
-            _productService = productService;
-            _productQuery = productQuery;
-        }
-
-        [AllowAnonymous]
-        public async Task<IActionResult> View(KeyInputModel inputModel)
-        {
-            var product = await _productQuery.GetByIdAsync(inputModel);
-            return View(product);
-        }
-
-        public async Task<IActionResult> List()
-        {
-            var products = await _productQuery.GetAllAsync();
-            return View(products);
-        }
-
-        public async Task<IActionResult> Detail(KeyInputModel inputModel)
-        {
-            var product = await _productQuery.GetByIdAsync(inputModel);
-            return View(product);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Add(ProductInputModel inputModel)
-        {
-            var productId = await _productService.AddProductAsync(inputModel.Name, inputModel.Description, inputModel.Barcode, inputModel.Price,
-                inputModel.Stock, inputModel.Images.Select(x => x.ImageUrl).ToList());
-
-            return RedirectToAction("Detail", productId);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Update(ProductUpdateInputModel inputModel)
-        {
-            var productId = await _productService.UpdateProductAsync(inputModel.Id, inputModel.Name, inputModel.Description, inputModel.Barcode, inputModel.Price,
-                inputModel.Stock, inputModel.Images.Select(x => x.ImageUrl).ToList());
-            return RedirectToAction("Detail", productId);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Delete(KeyInputModel inputModel)
-        {
-            await _productService.DeleteProductAsync(inputModel.Id);
-            return RedirectToAction("List");
+            return View();
         }
     }
 }

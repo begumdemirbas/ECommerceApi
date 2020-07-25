@@ -1,25 +1,10 @@
-﻿using ECommerceApi.DomainCore;
-
+﻿using System;
 namespace ECommerceApi.Domain.AggregatesModel.ProductAggregate
 {
-    public class ProductImage : Entity
+    public class ProductImage
     {
-        public string ImageUrl { get; private set; }
-        public long ProductId { get; private set; }
-        public Product Product { get; private set; }
-
         public ProductImage()
         {
-        }
-
-        public ProductImage(string imageUrl)
-        {
-            ImageUrl = imageUrl;
-        }
-
-        public void Delete()
-        {
-            IsDeleted = true;
         }
     }
 }

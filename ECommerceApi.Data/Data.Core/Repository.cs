@@ -21,14 +21,14 @@ namespace ECommerceApi.Data.Data.Core
 
         #region Get
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync(params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes)
+        public IEnumerable<TEntity> GetAll(params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes)
         {
-            return await Task.Run(() => IncludeQuery(_unitOfWork.GetDbSetAsQueryable<TEntity>(), includes).ToList());
+            return IncludeQuery(_unitOfWork.GetDbSetAsQueryable<TEntity>(), includes).ToList();
         }
 
-        public async Task<TEntity> GetByKeyAsync(long id, params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes)
+        public TEntity GetByKey(long id, params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes)
         {
-             return await Task.Run(() => LocalGetByKey(id, false, includes).FirstOrDefault());
+             return LocalGetByKey(id, false, includes).FirstOrDefault();
         }
 
         private IQueryable<TEntity> LocalGetByKey(long id, bool ignoreQueryFilters, params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes)
