@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="AggregatesModel\" />
+    <Folder Include="AggregatesModel\ProductAggregate\" />
+    <Folder Include="AggregatesModel\ProductAggregate\Rules\" />
+    <Folder Include="AggregatesModel\ProductAggregate\Services\" />
+    <Folder Include="AggregatesModel\UserAggregate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerceApi.DomainCore\ECommerceApi.DomainCore.csproj" />
+  </ItemGroup>
+</Project>
