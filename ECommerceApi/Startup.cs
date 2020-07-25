@@ -45,6 +45,12 @@ namespace ECommerceApi
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            builder.RegisterType<Context>()
+               .As<IUnitOfWork>()
+               .Keyed<IUnitOfWork>("Context")
+               .WithAttributeFiltering()
+               .InstancePerLifetimeScope();
+
             builder.RegisterGeneric(typeof(Repository<>))
                 .As(typeof(IRepository<>))
                 .WithAttributeFiltering()
@@ -64,7 +70,6 @@ namespace ECommerceApi
                 .As<IProductService>()
                 .WithAttributeFiltering()
                 .InstancePerLifetimeScope();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

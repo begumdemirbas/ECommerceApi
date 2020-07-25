@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using ECommerceApi.Application.Queries;
+﻿using ECommerceApi.Application.Queries;
 using ECommerceApi.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace ECommerceApi.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IUserQuery _userQuery;
+
         public AccountController(IUserQuery userQuery)
         {
             _userQuery = userQuery;
@@ -36,7 +34,7 @@ namespace ECommerceApi.Controllers
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                //Just redirect to our index after logging in. 
+                //Just redirect to our index after logging in.
                 return RedirectToAction("Index", "Home");
             }
             return View();

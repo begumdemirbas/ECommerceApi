@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using ECommerceApi.Application.Queries;
+﻿using ECommerceApi.Application.Queries;
 using ECommerceApi.Domain.AggregatesModel.ProductAggregate.Services;
 using ECommerceApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ECommerceApi.Controllers
 {

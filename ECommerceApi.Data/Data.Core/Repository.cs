@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Autofac.Features.AttributeFilters;
 using ECommerceApi.DomainCore;
 
 namespace ECommerceApi.Data.Data.Core
@@ -13,8 +14,9 @@ namespace ECommerceApi.Data.Data.Core
         public IUnitOfWork UnitOfWork => _unitOfWork;
         protected readonly IUnitOfWork _unitOfWork;
 
-        public Repository(IUnitOfWork unitOfWork)
+        public Repository([KeyFilter("Context")]IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
         }
 
         #region Get

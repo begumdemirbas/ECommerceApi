@@ -1,13 +1,19 @@
-﻿using ECommerceApi.Data.EntityConfigurations;
+﻿using ECommerceApi.Data.Data.Core;
+using ECommerceApi.Data.EntityConfigurations;
 using ECommerceApi.Domain.AggregatesModel.ProductAggregate;
 using ECommerceApi.Domain.AggregatesModel.UserAggregate;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceApi.Data
 {
-    public class Context : DbContext
+    public class Context : BaseContext<Context>
     {
         public Context(DbContextOptions<Context> options) : base(options)
+        {
+
+        }
+
+        public Context()
         {
 
         }

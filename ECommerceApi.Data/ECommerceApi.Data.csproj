@@ -13,7 +13,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data.Core\" />
     <Folder Include="EntityConfigurations\" />
   </ItemGroup>
   <ItemGroup>
