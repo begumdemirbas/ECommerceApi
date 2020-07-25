@@ -1,41 +1,37 @@
-﻿@model ECommerceApi.Models.ProductInputModel
+﻿@model ECommerceApi.Models.ProductListDataModel
 
 @{
-    ViewData["Title"] = "Add Product";
+    ViewData["Title"] = "Product List";
 }
 
-    <div class="text-center">
-        
-
-        <form action="/Product/AddProduct" method="post">
-            <div>
-                <label>Name: </label>
-                @Html.TextBoxFor(x => x.Name)
-            </div>
-
-            <div>
-                <label>Description: </label>
-                @Html.TextBoxFor(x => x.Description)
-            </div>
-
-            <div>
-                <label>Description: </label>
-                @Html.TextBoxFor(x => x.Barcode)
-            </div>
-
-            <div>
-                <label>Description: </label>
-                @Html.TextBoxFor(x => x.Price)
-            </div>
-
-            <div>
-                <label>Description: </label>
-                @Html.TextBoxFor(x => x.Stock)
-            </div>
-
-            <div>
-                <input type="submit" value="Kaydet" />
-            </div>
-
-        </form>
+    <div>
+        <table class="table table-bordered table-responsive table-hover">
+            <tr class="btn-primary">
+                <th>Name </th>
+                <th>Description</th>
+                <th>Barcode</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th> </th>
+            </tr>
+            @foreach (var product in Model.Data)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Barcode</td>
+                    <td>@product.Price</td>
+                    <td>@product.Stock</td>
+                    <td>
+                        <a class="btn-primary" href="@Url.Action("Index","Product", new { @id = product.Id })">View</a>
+                        <a class="btn-info" href="@Url.Action("UpdateProduct","Product", new { @id = product.Id })">Update</a>
+                        @using (Html.BeginForm("DeleteProduct", "Product", new { id = product.Id }, FormMethod.Post))
+                        {
+                            <input class="btn-danger" type="submit" value="Delete" />
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+        <div>Product Count: @Model.DataCount</div>
     </div>

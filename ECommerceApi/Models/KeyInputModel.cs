@@ -3,8 +3,6 @@ namespace ECommerceApi.Models
 {
     public class KeyInputModel
     {
-        public KeyInputModel()
-        {
-        }
+        public long Id { get; set; }
     }
 }

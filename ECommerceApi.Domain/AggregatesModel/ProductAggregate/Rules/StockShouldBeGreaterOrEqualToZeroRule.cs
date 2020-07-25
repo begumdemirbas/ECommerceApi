@@ -1,10 +1,21 @@
-﻿using System;
-namespace ECommerceApi.Domain.AggregatesModel.ProductAggregate
+﻿using ECommerceApi.DomainCore;
+
+namespace ECommerceApi.Domain.AggregatesModel.ProductAggregate.Rules
 {
-    public class StockShouldBeGreaterThanZero
+    public class StockShouldBeGreaterOrEqualToZeroRule : IBusinessRule
     {
-        public StockShouldBeGreaterThanZero()
+        private readonly int _stock;
+
+        public StockShouldBeGreaterOrEqualToZeroRule(int stock)
         {
+            _stock = stock;
         }
+
+        public bool IsBroken()
+        {
+            return _stock < 0;
+        }
+
+        public string ExceptionResourceKey => "StockShouldBeGreaterOrEqualToZero";
     }
 }

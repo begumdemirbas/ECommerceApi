@@ -1,38 +1,49 @@
-﻿@model ECommerceApi.Models.ProductInputModel
+﻿@model ECommerceApi.Models.ProductDataModel
 
 @{
-    ViewData["Title"] = "Add Product";
+    ViewData["Title"] = "Update Product";
 }
 
     <div>
-        <form action="/Product/AddProduct" method="post">
-            <div>
-                <label>Name: </label>
-                @Html.TextBoxFor(x => x.Name)
+        <form action="/Product/UpdateProduct" method="post">
+            @Html.HiddenFor(x => x.Id)
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Name </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Name)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Description </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Description)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Barcode </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Barcode)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Price </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Price)</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Stock </label>
+                </div>
+                <div class="col-md-6"> @Html.TextBoxFor(x => x.Stock)</div>
             </div>
 
             <div>
-                <label>Description: </label>
-                @Html.TextBoxFor(x => x.Description)
-            </div>
-
-            <div>
-                <label>Barcode: </label>
-                @Html.TextBoxFor(x => x.Barcode)
-            </div>
-
-            <div>
-                <label>Price: </label>
-                @Html.TextBoxFor(x => x.Price)
-            </div>
-
-            <div>
-                <label>Stock: </label>
-                @Html.TextBoxFor(x => x.Stock)
-            </div>
-
-            <div>
-                <input type="submit" value="Kaydet" />
+                <input type="submit" value="Güncelle" />
             </div>
 
         </form>
